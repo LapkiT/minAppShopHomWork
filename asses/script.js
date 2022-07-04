@@ -96,7 +96,7 @@ function attachEventListeners() {
 }
 
 function buyCourse(event) {
-    // Используйте делегирование, чтобы найти добавленный курс
+
     if (event.target.className == "btn btn-primary giveCount") {
       // Прочитать стоимость курса
       const course = event.target.parentElement.parentElement;
