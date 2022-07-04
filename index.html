@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asses/skeleton.css">
+    <link rel = "stylesheet" href="asses/custom.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type = "text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src = "asses/script.js"></script>
+    <title>Интернет</title>
+</head>
+<body>
+    <header class = "header">
+        <div class = "main__container">
+            <div class = "contant__header">
+                
+                <div class="icon__container">
+                    <div id = "icon">
+                        <img src="asses/icon.png">
+                    </div>
+                    <div id = "sever">
+                        <p>МАГАЗИН ТОВАРОВ</p>
+                    </div>
+                </div>
+                
+                <div class="two columns u-pull-right">
+                    <ul>
+                        <li class="submenu">
+                                <img src="asses/cart.png" id="img-cart">
+                                <div id="shopping-cart">
+                                        <table id="cart-content" class="u-full-width">
+                                            <thead>
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+    
+                                        <a href="#" id="clear-cart" class="button u-full-width">Очистить корзину</a>
+                                </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <form class = "search__products" name="search">
+                    <div>
+                        <input type="search" class="form-control" placeholder="искать товар" aria-label="search" aria-describedby="addon-wrapping">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-warning">Поиск</button>
+                    </div>
+                </form>
+
+                <div class="nav__menu">
+                    <nav class = "nav">
+                            <button id = "dropdown-toggle" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Выбрать категорию товара</button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item active" href="#" data-type = "Все товары">Все товары</a></li>
+                              <li><a class="dropdown-item" href="#" data-type = "3">Телевизоры</a></li>
+                              <li><a class="dropdown-item" href="#" data-type = "4">Часы</a></li>
+                              <li><a class="dropdown-item" href="#" data-type = "2">Ноутбуки</a></li>
+                              <li><a class="dropdown-item" href="#" data-type = "1">Смартфоны</a></li>
+                            </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class = "blocks">
+            <div class = "main__container">
+                <div class = "container__blockwrap">
+                    <div class="block card">
+                        <img src="" class = "">
+                        <div class="card-body">
+                          <h5 class="card-title">Название карточки</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
