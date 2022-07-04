@@ -1,3 +1,3 @@
-# My GitHub Project
-## Привет мир
-This is my GitHub project. I published it directly from Visual Studio Code.
+# Выполненная домашняя работа с 3.8.lesson..
+
+Перед открытием проекта следует помолиться...
