@@ -102,19 +102,18 @@ function buyCourse(event) {
 }
 
 function getCourseInfo(course) {
-    // Создать объект с данными курса
+
     console.log(course)
     const courseInfo = products.find(el => el.id == course);
     console.log(courseInfo)
-    // Вставить в карту покупок
+
     addIntoCard(courseInfo);
 }
 
 function addIntoCard(course) {
-    // Создать  <tr>
+
     const row = document.createElement("tr");
-  
-    // Создайте шаблон
+
     row.innerHTML = `
       <tr>
         <td>
@@ -127,17 +126,17 @@ function addIntoCard(course) {
         </td>
       </tr>
     `;
-    // Добавить в корзину
+
     shoppingCartContent.appendChild(row);
   
-    // Добавить курс в хранилище
+
     saveIntoStorage(course);
 }
 
 function getCoursesFromStorage() {
     let courses;
   
-    // если что-то существует в хранилище, мы получаем значение, в противном случае создаем пустой массив
+
     if (localStorage.getItem("courses") === null) {
       courses = [];
     } else {
@@ -149,9 +148,9 @@ function getCoursesFromStorage() {
 function saveIntoStorage(course) {
     let courses = getCoursesFromStorage();
   
-    // добавить курсы в массив
+
     courses.push(course);
-    // поскольку хранилище сохраняет только строки, нам нужно преобразовать JSON в String
+
     localStorage.setItem("courses", JSON.stringify(courses));
 }
 
@@ -163,36 +162,36 @@ function removeCourse(event) {
       courseId = course.querySelector("a").getAttribute("data-id");
     }
   
-    // удалить из локального хранилища
+
     removeCourseLocalStorage(courseId);
 }
 
 
-// Очищает корзину
+
 function clearCart() {
-    // shoppingCartContent.innerHTML = '';
+
  
     while (shoppingCartContent.firstChild) {
       shoppingCartContent.removeChild(shoppingCartContent.firstChild);
     }
   
-    // Очищение хранилища
+
     clearLocalStorage();
 }
-  // Очищает все локальное хранилище
+
 function clearLocalStorage() {
   localStorage.clear();
 }
-  // Загружается, когда документ готов, и распечатывает курсы в корзину.
+
   
 function getFromLocalStorage() {
     let coursesLS = getCoursesFromStorage();
   
-    // ПЕРЕЙТИ по курсам и распечатайте их в корзине
+
     coursesLS.forEach(course => {
-      // Создать <tr>
+
       const row = document.createElement("tr");
-      // Создайте шаблон
+
       row.innerHTML = `
         <tr>
           <td>
@@ -206,23 +205,22 @@ function getFromLocalStorage() {
         </tr>
       `;
   
-      // Добавить в корзину
+
       shoppingCartContent.appendChild(row);
   });
 }
 
 function removeCourseLocalStorage(id) {
-  //получить данные локального хранилища
+
   let coursesLS = getCoursesFromStorage();
 
-  //пройтись по массиву и найти индекс для удаления
   coursesLS.forEach((courseLS, index) => {
     if (courseLS.id === id) {
       coursesLS.splice(index, 1);
     }
   });
 
-  // Добавьте остальную часть массива
+
   localStorage.setItem("courses", JSON.stringify(coursesLS));
 }
   
