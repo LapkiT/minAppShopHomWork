@@ -155,7 +155,7 @@ function saveIntoStorage(course) {
 }
 
 function removeCourse(event) {
-    let course, courseId; console.log(event.target.classList.contains("remove"));
+    let course, courseId; 
     if (event.target.classList.contains("remove")) {
       event.target.parentElement.parentElement.remove();
       course = event.target.parentElement.parentElement;
@@ -213,17 +213,16 @@ function getFromLocalStorage() {
 function removeCourseLocalStorage(id) {
 
   let coursesLS = getCoursesFromStorage();
-
+  console.log(coursesLS)
   coursesLS.forEach((courseLS, index) => {
-    if (courseLS.id === id) {
+      if (courseLS.id == id) {
       coursesLS.splice(index, 1);
-    }
+      }
   });
 
 
   localStorage.setItem("courses", JSON.stringify(coursesLS));
 }
-  
 
 const dropdown = document.querySelector('.dropdown-menu');
 
