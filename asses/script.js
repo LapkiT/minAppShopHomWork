@@ -59,17 +59,19 @@ function render(list, catalog) {
                               <p class="card-text">Категория: ${category}</p>
                               <p class="card-text">description: ${products.description}</p>
                               <p class="card-text">Стоимость: ${products.price}</p>
-                              <button class="btn btn-primary giveCount">Добавить в корзину</button>
+                              <button id = "${products.id}" class="btn btn-primary giveCount">Добавить в корзину</button>
                             </div>
                           </div>`;
 
             block.innerHTML = html;
 
             block.addEventListener('click', (e) => {
-                // РЕАЛИЗОВАТЬ БЛОК КОДА ДОБАВЛЕНИЯ В ЛОКАЛ ХРАНИЛИЩЕ ДАННЫЕ ИЗ МАГАЗИНА
-                if (event.target.className == "btn btn-primary giveCount") {
-                  buyCourse(e);
-                  alert(`Товар ${products.title} был добавлен в корзину.`)
+              console.log(e.target.id)
+                if (e.target.id == "") {
+                  return;
+                } else {
+                  buyCourse(e.target.id);
+                  alert(`Товар ${products.title} был добавлен в корзину.`);
                 }
             })
 
@@ -83,38 +85,27 @@ function render(list, catalog) {
 attachEventListeners();
 
 function attachEventListeners() {
-  // Когда добавляются новые курсы
 
-  // Когда нажата кнопка удаления
   shoppingCartContent.addEventListener("click", removeCourse);
 
-  // Кнопка очистить корзину
+
   clearCartBtn.addEventListener("click", clearCart);
 
-  // Чтение документа
+
   document.addEventListener("DOMContentLoaded", getFromLocalStorage);
 }
 
 function buyCourse(event) {
+      const course = event;
 
-    if (event.target.className == "btn btn-primary giveCount") {
-      // Прочитать стоимость курса
-      const course = event.target.parentElement.parentElement;
-      // Прочитать значение
       getCourseInfo(course);
-    }
 }
 
 function getCourseInfo(course) {
     // Создать объект с данными курса
     console.log(course)
-    const courseInfo = {
-      image: course.querySelector("img").src,
-      title: course.querySelector(".card-title").textContent,
-      price: course.querySelector(".card-text").textContent,
-      id: course.getAttribute("data-id"),
-    };
-    
+    const courseInfo = products.find(el => el.id == course);
+    console.log(courseInfo)
     // Вставить в карту покупок
     addIntoCard(courseInfo);
 }
@@ -127,7 +118,7 @@ function addIntoCard(course) {
     row.innerHTML = `
       <tr>
         <td>
-          <img src="${course.image}" width=100>
+          <img src="${course.photo}" width=100>
         </td>
         <td>${course.title}></td>
         <td>${course.price}</td>
@@ -225,7 +216,7 @@ function removeCourseLocalStorage(id) {
   let coursesLS = getCoursesFromStorage();
 
   //пройтись по массиву и найти индекс для удаления
-  coursesLS.forEach(function (courseLS, index) {
+  coursesLS.forEach((courseLS, index) => {
     if (courseLS.id === id) {
       coursesLS.splice(index, 1);
     }
