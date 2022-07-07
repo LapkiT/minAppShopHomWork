@@ -66,13 +66,14 @@ function render(list, catalog) {
             block.innerHTML = html;
 
             block.addEventListener('click', (e) => {
-              console.log(e.target.id)
+
                 if (e.target.id == "") {
                   return;
                 } else {
                   buyCourse(e.target.id);
                   alert(`Товар ${products.title} был добавлен в корзину.`);
                 }
+                
             })
 
             containerBlockWrap.appendChild(block);
